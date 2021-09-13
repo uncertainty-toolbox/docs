@@ -1,0 +1,556 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>metrics_calibration module &mdash; uncertainty-toolbox 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/square_logo_only.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="metrics_accuracy module" href="metrics_accuracy.html" />
+    <link rel="prev" title="metrics module" href="metrics.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> uncertainty-toolbox
+          
+
+          
+            
+            <img src="../_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#minimal-example">Minimal example</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data.html">data module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.html#module-uncertainty_toolbox.data">uncertainty_toolbox.data Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">metrics module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metrics.html#module-uncertainty_toolbox.metrics">uncertainty_toolbox.metrics Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">metrics_calibration module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-uncertainty_toolbox.metrics_calibration">uncertainty_toolbox.metrics_calibration Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics_accuracy.html">metrics_accuracy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metrics_accuracy.html#module-uncertainty_toolbox.metrics_accuracy">uncertainty_toolbox.metrics_accuracy Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics_scoring_rule.html">metrics_scoring_rule module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metrics_scoring_rule.html#module-uncertainty_toolbox.metrics_scoring_rule">uncertainty_toolbox.metrics_scoring_rule Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recalibration.html">recalibration module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recalibration.html#module-uncertainty_toolbox.recalibration">uncertainty_toolbox.recalibration Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#module-uncertainty_toolbox.utils">uncertainty_toolbox.utils Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="viz.html">viz module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="viz.html#module-uncertainty_toolbox.viz">uncertainty_toolbox.viz Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">uncertainty-toolbox</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">API Reference</a> &raquo;</li>
+        
+      <li>metrics_calibration module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/api_reference/metrics_calibration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="metrics-calibration-module">
+<h1>metrics_calibration module<a class="headerlink" href="#metrics-calibration-module" title="Permalink to this headline">¶</a></h1>
+<p>This section contains the Python API reference for the
+<code class="docutils literal notranslate"><span class="pre">uncertainty_toolbox.metrics_calibration</span></code> module, which contains code for uncertainty
+metrics involving calibration.</p>
+<section id="module-uncertainty_toolbox.metrics_calibration">
+<span id="uncertainty-toolbox-metrics-calibration-module"></span><h2>uncertainty_toolbox.metrics_calibration Module<a class="headerlink" href="#module-uncertainty_toolbox.metrics_calibration" title="Permalink to this headline">¶</a></h2>
+<p>Metrics for assessing the quality of predictive uncertainty quantification.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_calibration.adversarial_group_calibration">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_calibration.</span></span><span class="sig-name descname"><span class="pre">adversarial_group_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cali_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'interval'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_group_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw_with_replacement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_trials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_group_draws</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_calibration.adversarial_group_calibration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adversarial group calibration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true labels in the held out dataset.</p></li>
+<li><p><strong>cali_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – type of calibration error to measure; one of [“mean_abs”, “root_mean_sq”].</p></li>
+<li><p><strong>prop_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “interval” to measure observed proportions for centered prediction intervals,
+and “quantile” for observed proportions below a predicted quantile.</p></li>
+<li><p><strong>num_bins</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of discretizations for the probability space [0, 1].</p></li>
+<li><p><strong>num_group_bins</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of discretizations for group size proportions between 0 and 1.</p></li>
+<li><p><strong>draw_with_replacement</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – True to draw subgroups that draw from the dataset with replacement.</p></li>
+<li><p><strong>num_trials</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of trials to estimate the worst calibration error per group size.</p></li>
+<li><p><strong>num_group_draws</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of subgroups to draw per given group size to measure calibration error on.</p></li>
+<li><p><strong>verbose</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – True to print progress statements.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Namespace</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A Namespace with an array of the group sizes, the mean of the worst
+calibration errors for each group size, and the standard error of the
+worst calibration error for each group size</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_calibration.get_prediction_interval">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_calibration.</span></span><span class="sig-name descname"><span class="pre">get_prediction_interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recal_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_calibration.get_prediction_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the centered predictional interval corresponding to a quantile.</p>
+<p>For a specified quantile level q (must be a float, or a singleton),
+return the centered prediction interval corresponding
+to the pair of quantiles at levels (0.5-q/2) and (0.5+q/2),
+i.e. interval that has nominal coverage equal to q.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>quantile</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – The quantile level to check.</p></li>
+<li><p><strong>recal_model</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">IsotonicRegression</span></code>]) – A recalibration model to apply before computing the interval.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Namespace</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Namespace containing the lower and upper bound corresponding to the
+centered interval.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_calibration.get_proportion_in_interval">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_calibration.</span></span><span class="sig-name descname"><span class="pre">get_proportion_in_interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_calibration.get_proportion_in_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a specified quantile, return the proportion of points falling into
+an interval corresponding to that quantile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true labels in the held out dataset.</p></li>
+<li><p><strong>quantile</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – a specified quantile level</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A single scalar which is the proportion of the true labels falling into the
+prediction interval for the specified quantile.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_calibration.get_proportion_lists">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_calibration.</span></span><span class="sig-name descname"><span class="pre">get_proportion_lists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recal_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'interval'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_calibration.get_proportion_lists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arrays of expected and observed proportions</p>
+<p>Return arrays of expected and observed proportions of points falling into
+intervals corresponding to a range of quantiles.
+Computations here are not vectorized, in case there are memory constraints.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true labels in the held out dataset.</p></li>
+<li><p><strong>num_bins</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of discretizations for the probability space [0, 1].</p></li>
+<li><p><strong>recal_model</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">IsotonicRegression</span></code>]) – an sklearn isotonoic regression model which recalibrates the predictions.</p></li>
+<li><p><strong>prop_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “interval” to measure observed proportions for centered prediction intervals,
+and “quantile” for observed proportions below a predicted quantile.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A tuple of two numpy arrays, expected proportions and observed proportions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_calibration.get_proportion_lists_vectorized">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_calibration.</span></span><span class="sig-name descname"><span class="pre">get_proportion_lists_vectorized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recal_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'interval'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_calibration.get_proportion_lists_vectorized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arrays of expected and observed proportions</p>
+<p>Returns the expected proportions and observed proportion of points falling into
+intervals corresponding to a range of quantiles.
+Computations here are vectorized for faster execution, but this function is
+not suited when there are memory constraints.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true labels in the held out dataset.</p></li>
+<li><p><strong>num_bins</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of discretizations for the probability space [0, 1].</p></li>
+<li><p><strong>recal_model</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]) – an sklearn isotonoic regression model which recalibrates the predictions.</p></li>
+<li><p><strong>prop_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “interval” to measure observed proportions for centered prediction intervals,
+and “quantile” for observed proportions below a predicted quantile.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A tuple of two numpy arrays, expected proportions and observed proportions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_calibration.get_proportion_under_quantile">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_calibration.</span></span><span class="sig-name descname"><span class="pre">get_proportion_under_quantile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_calibration.get_proportion_under_quantile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the proportion of data that are below the predicted quantile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true labels in the held out dataset.</p></li>
+<li><p><strong>quantile</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The quantile level to check.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The proportion of data below the quantile level.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_calibration.get_quantile">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_calibration.</span></span><span class="sig-name descname"><span class="pre">get_quantile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recal_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_calibration.get_quantile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value corresponding with a quantile.</p>
+<p>For a specified quantile level q (must be a float, or a singleton),
+return the quantile prediction,
+i.e. bound that has nominal coverage below the bound equal to q.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>quantile</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – The quantile level to check.</p></li>
+<li><p><strong>recal_model</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">IsotonicRegression</span></code>]) – A recalibration model to apply before computing the interval.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The value at which the quantile is achieved.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_calibration.mean_absolute_calibration_error">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_calibration.</span></span><span class="sig-name descname"><span class="pre">mean_absolute_calibration_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vectorized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recal_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'interval'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_calibration.mean_absolute_calibration_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mean absolute calibration error; identical to ECE.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true labels in the held out dataset.</p></li>
+<li><p><strong>num_bins</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of discretizations for the probability space [0, 1].</p></li>
+<li><p><strong>vectorized</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – whether to vectorize computation for observed proportions.
+(while setting to True is faster, it has much higher memory requirements
+and may fail to run for larger datasets).</p></li>
+<li><p><strong>recal_model</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">IsotonicRegression</span></code>]) – an sklearn isotonoic regression model which recalibrates the predictions.</p></li>
+<li><p><strong>prop_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “interval” to measure observed proportions for centered prediction intervals,
+and “quantile” for observed proportions below a predicted quantile.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A single scalar which calculates the mean absolute calibration error.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_calibration.miscalibration_area">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_calibration.</span></span><span class="sig-name descname"><span class="pre">miscalibration_area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vectorized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recal_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'interval'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_calibration.miscalibration_area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Miscalibration area.</p>
+<p>This is identical to mean absolute calibration error and ECE, however
+the integration here is taken by tracing the area between curves.
+In the limit of num_bins, miscalibration area and
+mean absolute calibration error will converge to the same value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true labels in the held out dataset.</p></li>
+<li><p><strong>num_bins</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of discretizations for the probability space [0, 1].</p></li>
+<li><p><strong>vectorized</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – whether to vectorize computation for observed proportions.
+(while setting to True is faster, it has much higher memory requirements
+and may fail to run for larger datasets).</p></li>
+<li><p><strong>recal_model</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]) – an sklearn isotonoic regression model which recalibrates the predictions.</p></li>
+<li><p><strong>prop_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “interval” to measure observed proportions for centered prediction intervals,
+and “quantile” for observed proportions below a predicted quantile.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A single scalar which calculates the miscalibration area.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_calibration.root_mean_squared_calibration_error">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_calibration.</span></span><span class="sig-name descname"><span class="pre">root_mean_squared_calibration_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vectorized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recal_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'interval'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_calibration.root_mean_squared_calibration_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Root mean squared calibration error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true labels in the held out dataset.</p></li>
+<li><p><strong>num_bins</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of discretizations for the probability space [0, 1].</p></li>
+<li><p><strong>vectorized</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – whether to vectorize computation for observed proportions.
+(while setting to True is faster, it has much higher memory requirements
+and may fail to run for larger datasets).</p></li>
+<li><p><strong>recal_model</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">IsotonicRegression</span></code>]) – an sklearn isotonoic regression model which recalibrates the predictions.</p></li>
+<li><p><strong>prop_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “interval” to measure observed proportions for centered prediction intervals,
+and “quantile” for observed proportions below a predicted quantile.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A single scalar which calculates the root mean squared calibration error.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_calibration.sharpness">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_calibration.</span></span><span class="sig-name descname"><span class="pre">sharpness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_calibration.sharpness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return sharpness (a single measure of the overall confidence).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A single scalar which quantifies the average of the standard deviations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="metrics_accuracy.html" class="btn btn-neutral float-right" title="metrics_accuracy module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="metrics.html" class="btn btn-neutral float-left" title="metrics module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, uncertainty-toolbox team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

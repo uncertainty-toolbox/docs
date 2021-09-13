@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>metrics_scoring_rule module &mdash; uncertainty-toolbox 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/square_logo_only.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="recalibration module" href="recalibration.html" />
+    <link rel="prev" title="metrics_accuracy module" href="metrics_accuracy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> uncertainty-toolbox
+          
+
+          
+            
+            <img src="../_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#minimal-example">Minimal example</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data.html">data module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.html#module-uncertainty_toolbox.data">uncertainty_toolbox.data Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">metrics module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metrics.html#module-uncertainty_toolbox.metrics">uncertainty_toolbox.metrics Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics_calibration.html">metrics_calibration module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metrics_calibration.html#module-uncertainty_toolbox.metrics_calibration">uncertainty_toolbox.metrics_calibration Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics_accuracy.html">metrics_accuracy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metrics_accuracy.html#module-uncertainty_toolbox.metrics_accuracy">uncertainty_toolbox.metrics_accuracy Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">metrics_scoring_rule module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-uncertainty_toolbox.metrics_scoring_rule">uncertainty_toolbox.metrics_scoring_rule Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recalibration.html">recalibration module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recalibration.html#module-uncertainty_toolbox.recalibration">uncertainty_toolbox.recalibration Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#module-uncertainty_toolbox.utils">uncertainty_toolbox.utils Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="viz.html">viz module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="viz.html#module-uncertainty_toolbox.viz">uncertainty_toolbox.viz Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">uncertainty-toolbox</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">API Reference</a> &raquo;</li>
+        
+      <li>metrics_scoring_rule module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/api_reference/metrics_scoring_rule.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="metrics-scoring-rule-module">
+<h1>metrics_scoring_rule module<a class="headerlink" href="#metrics-scoring-rule-module" title="Permalink to this headline">¶</a></h1>
+<p>This section contains the Python API reference for the
+<code class="docutils literal notranslate"><span class="pre">uncertainty_toolbox.metrics_scoring_rule</span></code> module, which contains code for uncertainty
+metrics involving scoring rules.</p>
+<section id="module-uncertainty_toolbox.metrics_scoring_rule">
+<span id="uncertainty-toolbox-metrics-scoring-rule-module"></span><h2>uncertainty_toolbox.metrics_scoring_rule Module<a class="headerlink" href="#module-uncertainty_toolbox.metrics_scoring_rule" title="Permalink to this headline">¶</a></h2>
+<p>Proper Scoring Rules for assessing the quality of predictive
+uncertainty quantification.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_scoring_rule.check_score">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_scoring_rule.</span></span><span class="sig-name descname"><span class="pre">check_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">99</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_scoring_rule.check_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>The negatively oriented check score.</p>
+<p>Computes the negatively oriented check score for held out data (y_true)
+given predictive uncertainty with mean (y_pred) and standard-deviation (y_std).
+Each test point and each quantile is given equal weight in the overall score
+over the test set and list of quantiles.</p>
+<p>The score is computed by scanning over a sequence of quantiles of the predicted
+distributions, starting at (start_q) and ending at (end_q).</p>
+<p>Negatively oriented means a smaller value is more desirable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true labels in the held out dataset.</p></li>
+<li><p><strong>scaled</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Whether to scale the score by size of held out set.</p></li>
+<li><p><strong>start_q</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The lower bound of the quantiles to use for computation.</p></li>
+<li><p><strong>end_q</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The upper bound of the quantiles to use for computation.</p></li>
+<li><p><strong>resolution</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of quantiles to use for computation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The check score.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_scoring_rule.crps_gaussian">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_scoring_rule.</span></span><span class="sig-name descname"><span class="pre">crps_gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_scoring_rule.crps_gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>The negatively oriented continuous ranked probability score for Gaussians.</p>
+<p>Computes CRPS for held out data (y_true) given predictive uncertainty with mean
+(y_pred) and standard-deviation (y_std). Each test point is given equal weight
+in the overall score over the test set.</p>
+<p>Negatively oriented means a smaller value is more desirable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of he predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true labels in the held out dataset.</p></li>
+<li><p><strong>scaled</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Whether to scale the score by size of held out set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The crps for the heldout set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_scoring_rule.interval_score">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_scoring_rule.</span></span><span class="sig-name descname"><span class="pre">interval_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">99</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_scoring_rule.interval_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>The negatively oriented interval score.</p>
+<p>Compute the negatively oriented interval score for held out data (y_true)
+given predictive uncertainty with mean (y_pred) and standard-deviation
+(y_std). Each test point and each percentile is given equal weight in the
+overall score over the test set and list of quantiles.</p>
+<p>Negatively oriented means a smaller value is more desirable.</p>
+<p>This metric is computed by scanning over a sequence of prediction intervals. Where
+p is the amount of probability captured from a centered prediction interval,
+intervals are formed starting at p=(start_p) and ending at p=(end_p).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true labels in the held out dataset.</p></li>
+<li><p><strong>scaled</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Whether to scale the score by size of held out set.</p></li>
+<li><p><strong>start_p</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The lower bound of probability to capture in a prediction interval.</p></li>
+<li><p><strong>end_p</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The upper bound of probability to capture in a prediction interval.</p></li>
+<li><p><strong>resolution</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of prediction intervals to use to compute the metric.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The interval score.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.metrics_scoring_rule.nll_gaussian">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.metrics_scoring_rule.</span></span><span class="sig-name descname"><span class="pre">nll_gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.metrics_scoring_rule.nll_gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Negative log likelihood for a gaussian.</p>
+<p>The negative log likelihood for held out data (y_true) given predictive
+uncertainty with mean (y_pred) and standard-deviation (y_std).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the held out dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the held out dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true labels in the held out dataset.</p></li>
+<li><p><strong>scaled</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Whether to scale the negative log likelihood by size of held out set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The negative log likelihood for the heldout set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="recalibration.html" class="btn btn-neutral float-right" title="recalibration module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="metrics_accuracy.html" class="btn btn-neutral float-left" title="metrics_accuracy module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, uncertainty-toolbox team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

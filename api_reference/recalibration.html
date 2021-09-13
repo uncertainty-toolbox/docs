@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>recalibration module &mdash; uncertainty-toolbox 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/square_logo_only.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="utils module" href="utils.html" />
+    <link rel="prev" title="metrics_scoring_rule module" href="metrics_scoring_rule.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> uncertainty-toolbox
+          
+
+          
+            
+            <img src="../_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#minimal-example">Minimal example</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data.html">data module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.html#module-uncertainty_toolbox.data">uncertainty_toolbox.data Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">metrics module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metrics.html#module-uncertainty_toolbox.metrics">uncertainty_toolbox.metrics Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics_calibration.html">metrics_calibration module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metrics_calibration.html#module-uncertainty_toolbox.metrics_calibration">uncertainty_toolbox.metrics_calibration Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics_accuracy.html">metrics_accuracy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metrics_accuracy.html#module-uncertainty_toolbox.metrics_accuracy">uncertainty_toolbox.metrics_accuracy Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics_scoring_rule.html">metrics_scoring_rule module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metrics_scoring_rule.html#module-uncertainty_toolbox.metrics_scoring_rule">uncertainty_toolbox.metrics_scoring_rule Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">recalibration module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-uncertainty_toolbox.recalibration">uncertainty_toolbox.recalibration Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#module-uncertainty_toolbox.utils">uncertainty_toolbox.utils Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="viz.html">viz module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="viz.html#module-uncertainty_toolbox.viz">uncertainty_toolbox.viz Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">uncertainty-toolbox</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">API Reference</a> &raquo;</li>
+        
+      <li>recalibration module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/api_reference/recalibration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="recalibration-module">
+<h1>recalibration module<a class="headerlink" href="#recalibration-module" title="Permalink to this headline">¶</a></h1>
+<p>This section contains the Python API reference for the
+<code class="docutils literal notranslate"><span class="pre">uncertainty_toolbox.recalibration</span></code> module, which contains code for recalibration
+procedures, which aim to improve the calibration of a predictor.</p>
+<section id="module-uncertainty_toolbox.recalibration">
+<span id="uncertainty-toolbox-recalibration-module"></span><h2>uncertainty_toolbox.recalibration Module<a class="headerlink" href="#module-uncertainty_toolbox.recalibration" title="Permalink to this headline">¶</a></h2>
+<p>Recalibrating uncertainty estimates.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.recalibration.get_interval_recalibrator">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.recalibration.</span></span><span class="sig-name descname"><span class="pre">get_interval_recalibrator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.recalibration.get_interval_recalibrator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prediction interval recalibrator.</p>
+<p>Fits an isotonic regression recalibration model and returns a function
+which takes in the mean and standard deviation predictions and a specified
+centered interval coverage level, and returns the recalibrated interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the recalibration dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the recalibration dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true means for the recalibration dataset.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A function which outputs the recalibrated prediction interval.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.recalibration.get_q_idx">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.recalibration.</span></span><span class="sig-name descname"><span class="pre">get_q_idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exp_props</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.recalibration.get_q_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility function which outputs the array index of an element.</p>
+<p>Gets the (approximate) index of a specified probability value, q, in the expected proportions array.
+Used as a utility function in isotonic regression recalibration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exp_props</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of expected probabilities.</p></li>
+<li><p><strong>q</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – a specified probability float.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An index which specifies the (approximate) index of q in exp_props</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.recalibration.get_quantile_recalibrator">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.recalibration.</span></span><span class="sig-name descname"><span class="pre">get_quantile_recalibrator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.recalibration.get_quantile_recalibrator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quantile recalibrator.</p>
+<p>Fits an isotonic regression recalibration model and returns a function
+which takes in the mean and standard deviation predictions and a specified
+quantile level, and returns the recalibrated quantile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the recalibration dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the recalibration dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true means for the recalibration dataset.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A function which outputs the recalibrated quantile prediction.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.recalibration.get_std_recalibrator">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.recalibration.</span></span><span class="sig-name descname"><span class="pre">get_std_recalibrator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ma_cal'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.recalibration.get_std_recalibrator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard deviation recalibrator.</p>
+<p>Computes the standard deviation recalibration ratio and returns a function
+which takes in an array of uncalibrated standard deviations and returns
+an array of recalibrated standard deviations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_mean</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the recalibration dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the recalibration dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true means for the recalibration dataset.</p></li>
+<li><p><strong>criterion</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – calibration metric to optimize for during recalibration; must be one of {“ma_cal”, “rms_cal”, “miscal”}.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A function which takes uncalibrated standard deviations as input and
+outputs the recalibrated standard deviations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.recalibration.iso_recal">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.recalibration.</span></span><span class="sig-name descname"><span class="pre">iso_recal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exp_props</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_props</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.recalibration.iso_recal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recalibration algorithm based on isotonic regression.</p>
+<p>Fits and outputs an isotonic recalibration model that maps observed
+probabilities to expected probabilities. This mapping proivdes
+the necessary adjustments to produce better calibrated outputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exp_props</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of expected probabilities (values must span [0, 1]).</p></li>
+<li><p><strong>obs_props</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of observed probabilities.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">IsotonicRegression</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An sklearn IsotonicRegression recalibration model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uncertainty_toolbox.recalibration.optimize_recalibration_ratio">
+<span class="sig-prename descclassname"><span class="pre">uncertainty_toolbox.recalibration.</span></span><span class="sig-name descname"><span class="pre">optimize_recalibration_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ma_cal'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uncertainty_toolbox.recalibration.optimize_recalibration_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale factor which uniformly recalibrates predicted standard deviations.</p>
+<p>Searches via black-box optimization the standard deviation scale factor (opt_ratio)
+which produces the best recalibration, i.e. updated standard deviation
+can be written as opt_ratio * y_std.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_mean</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted means for the recalibration dataset.</p></li>
+<li><p><strong>y_std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the predicted standard deviations for the recalibration dataset.</p></li>
+<li><p><strong>y_true</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 1D array of the true means for the recalibration dataset.</p></li>
+<li><p><strong>criterion</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – calibration metric to optimize for during recalibration; must be one of {“ma_cal”, “rms_cal”, “miscal”}.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A single scalar which optimally recalibrates the predicted standard deviations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="utils.html" class="btn btn-neutral float-right" title="utils module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="metrics_scoring_rule.html" class="btn btn-neutral float-left" title="metrics_scoring_rule module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, uncertainty-toolbox team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
