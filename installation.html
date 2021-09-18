@@ -202,16 +202,19 @@
             
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Uncertainty Toolbox requires Python 3.6+. To install, first clone the repo:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git clone https://github.com/uncertainty-toolbox/uncertainty-toolbox.git
+<p>Uncertainty Toolbox requires Python 3.6+. For a lightweight installation of the package
+only, run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install git+https://github.com/uncertainty-toolbox/uncertainty-toolbox</span>
 </pre></div>
 </div>
-<p>Then <code class="code docutils literal notranslate"><span class="pre">cd</span></code> into this repo, and run:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> pip install -e .
+<p>For a full installation with examples and tests, run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/uncertainty-toolbox/uncertainty-toolbox.git</span>
+<span class="go">cd uncertainty-toolbox</span>
+<span class="go">pip install -e .</span>
 </pre></div>
 </div>
-<p>Or, to install all dependencies for development, run:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> pip install -r requirements/requirements_dev.txt
+<p>To verify correct installation, you can run the test suite via:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">source shell/run_all_tests.sh</span>
 </pre></div>
 </div>
 </section>
